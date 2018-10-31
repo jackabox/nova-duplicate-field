@@ -8,7 +8,7 @@ Currently only duplicates the main record and no relations but this is on the to
 - [ ] Catch errors properly
 - [ ] Give a clearer notification to end users.
 
-### Installation
+### Installation
 
 Install the duplicate field.
 
