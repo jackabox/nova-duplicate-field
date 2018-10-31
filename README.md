@@ -13,7 +13,7 @@ Currently only duplicates the main record and no relations but this is on the to
 Install the duplicate field.
 
 ```
-composer install jackabox/nova-duplicate-field
+composer require jackabox/nova-duplicate-field
 ```
 
 Reference the duplicate field at the top of your Nova resource and then include the necessary code within the fields.
