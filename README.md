@@ -1,10 +1,12 @@
+**v0.2.0**
+
 # Nova Duplicate Field
 
-Currently only duplicates the main record and no relations but this is on the todo list. Meta needs passing through to ensure the right models are replicated and redirection to the new entry happens.
+Duplication of a record through the nova admin panel along with any defined relations that are required (tested on HasMany). Creates a copy of the data in our admin panel and redirects to the view.
 
 ### Todo
 
-- [ ] Duplicate relations alongside the main post.
+- [x] Duplicate relations alongside the main post.
 - [ ] Catch errors properly
 - [ ] Give a clearer notification to end users.
 
@@ -28,6 +30,7 @@ DuplicateField::make('Duplicate')
         'resource' => 'specialisms', // resource url
         'model' => 'App\Models\Specialism', // model path
         'id' => $this->id // id of record
+        'relations' => ['one', 'two'] // an array of any relations to load (nullable).
     ]),
 ```
 
@@ -36,3 +39,7 @@ Duplicate field only works on the index view and already passes through `onlyOnI
 ### Demo
 
 ![Duplicate Field Image](./img/nova-duplicate-field-small.gif)
+
+## Issues
+
+If there are any issues or requests feel free to open a GitHub issue or a pull request.

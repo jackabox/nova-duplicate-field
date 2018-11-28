@@ -21,7 +21,8 @@ export default {
             axios.post('/nova-duplicate/', {
                 model: this.field.model,
                 id: this.field.id,
-                resource: this.field.resource
+                resource: this.field.resource,
+                relations: this.field.relations
             }).then(response => {
                 // alert('Record has been duplicated properly, redirect you to the edit page');
                 window.location.replace(response.data.destination);
