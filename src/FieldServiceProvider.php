@@ -31,8 +31,8 @@ class FieldServiceProvider extends ServiceProvider
             return;
         }
 
-        Route::middleware(['web'])
-            ->prefix('nova-duplicate')
+        Route::middleware(['nova'])
+            ->prefix('/nova-vendor/jackabox/nova-duplicate')
             ->group(__DIR__ . '/../routes/api.php');
     }
 
