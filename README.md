@@ -21,7 +21,7 @@ composer require jackabox/nova-duplicate-field
 Reference the duplicate field at the top of your Nova resource and then include the necessary code within the fields.
 
 ```php
-use Jackabox/DuplicateField/DuplicateField
+use Jackabox\DuplicateField\DuplicateField
 ```
 
 ```php
@@ -29,7 +29,7 @@ DuplicateField::make('Duplicate')
     ->withMeta([
         'resource' => 'specialisms', // resource url
         'model' => 'App\Models\Specialism', // model path
-        'id' => $this->id // id of record
+        'id' => $this->id, // id of record
         'relations' => ['one', 'two'] // an array of any relations to load (nullable).
     ]),
 ```
