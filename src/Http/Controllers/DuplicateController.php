@@ -14,6 +14,15 @@ class DuplicateController extends Controller
     {
         // Replicate the model
         $model = $request->model::where('id', $request->id)->first();
+
+        if (!$model) {
+            return [
+                'status' => 404,
+                'message' => 'No model found.',
+                'destination' => config('nova.url') . config('nova.path') . '/resources/' . $request->resource . '/'
+            ];
+        }
+
         $newModel = $model->replicate();
         $newModel->push();
 
