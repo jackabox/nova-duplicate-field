@@ -29,7 +29,7 @@ export default {
   methods: {
     onClick() {
       axios
-        .post("/nova-vendor/jackabox/nova-duplicate/", {
+        .post("/nova-vendor/jackabox/nova-duplicate", {
           model: this.field.model ? this.field.model : "",
           id: this.field.id ? this.field.id : "",
           resource: this.field.resource ? this.field.resource : "",
