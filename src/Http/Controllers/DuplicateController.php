@@ -47,7 +47,7 @@ class DuplicateController extends Controller
         return [
             'status' => 200,
             'message' => 'Done',
-            'destination' => '/' . config('nova.path') . '/resources/' . $request->resource . '/' . $newModel->id
+            'destination' => '://' . $_SERVER['HTTP_HOST'] . '/' . config('nova.path') . '/resources/' . $request->resource . '/' . $newModel->id
         ];
     }
 }
