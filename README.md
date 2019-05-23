@@ -1,4 +1,4 @@
-**Current Version: v0.2.6**
+**Current Version: v0.2.7**
 
 # Nova Duplicate Field
 
