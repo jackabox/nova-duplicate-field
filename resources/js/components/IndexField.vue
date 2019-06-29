@@ -33,7 +33,8 @@ export default {
           model: this.field.model ? this.field.model : "",
           id: this.field.id ? this.field.id : "",
           resource: this.field.resource ? this.field.resource : "",
-          relations: this.field.relations ? this.field.relations : ""
+          relations: this.field.relations ? this.field.relations : "",
+          maintain: this.field.maintain ? this.field.maintain : "",
         })
         .then(response => {
           window.location.replace(response.data.destination);
