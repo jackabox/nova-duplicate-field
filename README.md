@@ -4,15 +4,20 @@
 
 Duplication of a record through the nova admin panel along with any defined relations that are required (tested on HasMany). Creates a copy of the data in our admin panel and redirects to the view.
 
-### Todo
+### Todo
 
 - [x] Duplicate relations alongside the main post.
-- [ ] Catch errors properly
-- [ ] Give a clearer notification to end users.
+    - [ ] Integrate reattaching of relations, rather than needing to duplicate (i.e. belongsToMany)
+- [ ] Catch errors to the end user.
+- [ ] Alert for the user (confirmation possibly).
+- [ ] Documentation on how to hide/show when needed.
+- [ ] Documentation on how to hook into replication.
+- [ ] Add a button to the resource view.
+- [ ] Clean up methods for `v1`
 
 ### Installation
 
-Install the duplicate field.
+Duplicate Field will work with Nova v1 or v2. To get started, install the package via Composer.
 
 ```
 composer require jackabox/nova-duplicate-field
@@ -34,11 +39,11 @@ DuplicateField::make('Duplicate')
     ]),
 ```
 
-Duplicate field only works on the index view and already passes through `onlyOnIndex()` as an option.
+Duplicate field only works on the index view at the moment (plans to expand this are coming) and already passes through `onlyOnIndex()` as an option.
 
-### Demo
+### Hooking Into Replication
 
-![Duplicate Field Image](./img/nova-duplicate-field-small.gif)
+**Duplicate Field** uses a relatively standard replicate method which is available via the Eloquent model. To modify data as you are duplicating the field use an observer on the `replicating` method.
 
 ## Issues
 
