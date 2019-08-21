@@ -1,23 +1,14 @@
-**Current Version: v0.2.7**
+# ![Laravel Nova Duplicate Model](https://github.com/jackabox/nova-duplicate-field/raw/master/title.png)
 
-# Nova Duplicate Field
+### Information
 
-Duplication of a record through the nova admin panel along with any defined relations that are required (tested on HasMany). Creates a copy of the data in our admin panel and redirects to the view.
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/jackabox/nova-duplicate-field?style=flat-square)
+![Packagist](https://img.shields.io/packagist/dt/jackabox/nova-duplicate-field?style=flat-square)
+![GitHub](https://img.shields.io/github/license/jackabox/nova-duplicate-field?style=flat-square)
 
-### Todo
-
-- [x] Duplicate relations alongside the main post.
-    - [ ] Integrate reattaching of relations, rather than needing to duplicate (i.e. belongsToMany)
-- [ ] Catch errors to the end user.
-- [ ] Alert for the user (confirmation possibly).
-- [ ] Documentation on how to hide/show when needed.
-- [ ] Documentation on how to hook into replication.
-- [ ] Add a button to the resource view.
-- [ ] Clean up methods for `v1`
+Allow users to duplicate a record through the Laravel Nova Admin Panel along with any relations that are required (currently works with HasMany).
 
 ### Installation
-
-Duplicate Field will work with Nova v1 or v2. To get started, install the package via Composer.
 
 ```
 composer require jackabox/nova-duplicate-field
@@ -45,6 +36,17 @@ Duplicate field only works on the index view at the moment (plans to expand this
 
 **Duplicate Field** uses a relatively standard replicate method which is available via the Eloquent model. To modify data as you are duplicating the field use an observer on the `replicating` method.
 
-## Issues
+### Issues
 
 If there are any issues or requests feel free to open a GitHub issue or a pull request.
+
+### Todo
+
+- [x] Duplicate relations alongside the main post.
+    - [ ] Integrate reattaching of relations, rather than needing to duplicate (i.e. belongsToMany)
+- [ ] Catch errors to the end user.
+- [ ] Alert for the user (confirmation possibly).
+- [ ] Documentation on how to hide/show when needed.
+- [ ] Documentation on how to hook into replication.
+- [ ] Add a button to the resource view.
+- [ ] Clean up methods for `v1`
