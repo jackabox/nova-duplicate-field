@@ -19,7 +19,7 @@ class DuplicateController extends Controller
             return [
                 'status' => 404,
                 'message' => 'No model found.',
-                'destination' => config('nova.url') . config('nova.path') . '/resources/' . $request->resource . '/'
+                'destination' => url(config('nova.path') . '/resources/' . $request->resource . '/')
             ];
         }
 
@@ -39,6 +39,18 @@ class DuplicateController extends Controller
 
                     // create a relation on the new model with the data.
                     $newModel->{$relation}()->create($item->toArray());
+                }
+            }
+        }
+
+        if (isset($request->maintain) && !empty($request->maintain)) {
+            // load the fresh model with relations to maintain
+            $model->$request->model::where('id', $request->id)->with($request->maintain)->first();
+
+            foreach ($model->getRelations() as $relation => $items) {
+                // works for hasMany
+                foreach ($items as $item) {
+                    $newModel->{$relation}()->attach($item);
                 }
             }
         }

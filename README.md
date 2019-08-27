@@ -26,7 +26,8 @@ DuplicateField::make('Duplicate')
         'resource' => 'specialisms', // resource url
         'model' => 'App\Models\Specialism', // model path
         'id' => $this->id, // id of record
-        'relations' => ['one', 'two'] // an array of any relations to load (nullable).
+        'relations' => ['one', 'two'], // an array of any relations to load (nullable).
+        'maintain' => ['three', 'four'] // an array of static relations to maintain (e.g. model ownership)
     ]),
 ```
 
