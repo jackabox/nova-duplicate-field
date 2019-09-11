@@ -958,7 +958,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         model: this.field.model ? this.field.model : "",
         id: this.field.id ? this.field.id : "",
         resource: this.field.resource ? this.field.resource : "",
-        relations: this.field.relations ? this.field.relations : ""
+        relations: this.field.relations ? this.field.relations : "",
+        mediaCollection: this.field.mediaCollection ? this.field.mediaCollection : "",
       }).then(function (response) {
         window.location.replace(response.data.destination);
       }).catch(function (error) {
