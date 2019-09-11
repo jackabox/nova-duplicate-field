@@ -25,6 +25,15 @@ class DuplicateController extends Controller
 
         $newModel = $model->replicate();
         $newModel->push();
+        
+        // Duplicate spatie media if we are using the package
+        if(method_exists($model, 'getMedia') && method_exists($model, 'copyMedia') && $request->mediaCollection) {
+            $images = $model->getMedia($request->mediaCollection);
+
+            foreach ($images as $image) {
+                $newModel->copyMedia($image->getPath())->toMediaCollection($request->mediaCollection);
+            }
+        }
 
         if (isset($request->relations) && !empty($request->relations)) {
             // load the relations
