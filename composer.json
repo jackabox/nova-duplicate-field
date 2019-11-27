@@ -1,7 +1,7 @@
 {
   "name": "jackabox/nova-duplicate-field",
   "description": "A Laravel Nova field to duplicate records.",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "keywords": [
     "laravel",
     "nova",
