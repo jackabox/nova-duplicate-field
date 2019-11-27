@@ -23,7 +23,14 @@ class DuplicateController extends Controller
             ];
         }
 
-        $newModel = $model->replicate();
+        $newModel = $model->replicate($request->except);
+
+        if (is_array($request->override)) {
+            foreach ($request->override as $field => $value) {
+                $newModel->{$field} = $value;
+            }
+        }
+
         $newModel->push();
 
         if (isset($request->relations) && !empty($request->relations)) {
