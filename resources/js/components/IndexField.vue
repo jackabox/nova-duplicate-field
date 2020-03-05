@@ -30,12 +30,15 @@ export default {
     onClick() {
       axios
         .post("/nova-vendor/jackabox/nova-duplicate", {
-          model: this.field.model ? this.field.model : "",
-          id: this.field.id ? this.field.id : "",
-          resource: this.field.resource ? this.field.resource : "",
-          relations: this.field.relations ? this.field.relations : "",
-          except: this.field.except ? this.field.except : "",
-          override: this.field.override ? this.field.override : ""
+          model_class: this.field.model_class,
+          model_key_name: this.field.model_key_name,
+          model_key_value: this.field.model_key_value,
+          resource: this.field.resource,
+          except: this.field.except || null,
+          override: this.field.override || null,
+          relations: this.field.relations || null,
+          relations_except: this.field.relations_except || null,
+          relations_override: this.field.relations_override || null,
         })
         .then(response => {
           window.location.replace(response.data.destination);
