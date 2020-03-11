@@ -14,24 +14,66 @@ Allow users to duplicate a record through the Laravel Nova Admin Panel along wit
 composer require jackabox/nova-duplicate-field
 ```
 
+### Basic usage
 Reference the duplicate field at the top of your Nova resource and then include the necessary code within the fields.
 
 ```php
 use Jackabox\DuplicateField\DuplicateField
+
+// ...
+
+DuplicateField::make('Duplicate', $this->model(), static::uriKey()),
 ```
 
+### Customization
+
+#### Except attributes
+Pass an array of attributes to not replicate.
+
 ```php
-DuplicateField::make('Duplicate')
-    ->withMeta([
-        'resource' => 'specialisms', // resource url
-        'model' => 'App\Models\Specialism', // model path
-        'id' => $this->id, // id of record
-        'relations' => ['one', 'two'], // an array of any relations to load (nullable).
-        'except' => ['status'], // an array of fields to not replicate (nullable).
-        'override' => ['status' => 'pending'] // an array of fields and values which will be set on the modal after duplicating (nullable).
+DuplicateField::make('Duplicate', $this->model(), static::uriKey())
+    ->except(['status']),
+```
+
+#### Override attributes
+Pass an array of attributes with values to override.
+
+```php
+DuplicateField::make('Duplicate', $this->model(), static::uriKey())
+    ->override(['status' => 'pending']),
+```
+
+#### Relations
+Pass an array of relations to replicate also.
+
+```php
+DuplicateField::make('Duplicate', $this->model(), static::uriKey())
+    ->relations(['translations']),
+```
+
+#### Relations except attributes
+Pass an array of attributes for each relation to not replicate.
+
+```php
+DuplicateField::make('Duplicate', $this->model(), static::uriKey())
+    ->relations(['translations'])
+    ->relationsExcept([
+        'translations' => ['slug'],
     ]),
 ```
 
+#### Relations except attributes
+Pass an array of attributes for each relation to override.
+
+```php
+DuplicateField::make('Duplicate', $this->model(), static::uriKey())
+    ->relations(['translations'])
+    ->relationsOverride([
+        'translations' => ['title' => 'New value'],
+    ]),
+```
+
+### Note
 Duplicate field only works on the index view at the moment (plans to expand this are coming) and already passes through `onlyOnIndex()` as an option.
 
 ### Hooking Into Replication
