@@ -2,7 +2,7 @@
 
 namespace Jackabox\DuplicateField\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Illuminate\Routing\Controller;
 
 class DuplicateController extends Controller
@@ -10,7 +10,7 @@ class DuplicateController extends Controller
     /**
      * Duplicate a nova field and all of the relations defined.
      */
-    public function duplicate(Request $request)
+    public function duplicate(NovaRequest $request)
     {
         // Replicate the model
         $model = $request->model::where('id', $request->id)->first();
