@@ -1,5 +1,9 @@
 # ![Laravel Nova Duplicate Model](https://github.com/jackabox/nova-duplicate-field/raw/master/title.png)
 
+### No Longer Maintained
+
+This plugin is no longer maintained. I've had no time to maintain this as I don't use Nova anymore. I'm looking for someone to take over this and handle it, let me know if you want to maintain it! See Issue #33.
+
 ### Information
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/jackabox/nova-duplicate-field?style=flat-square)
